@@ -1,26 +1,27 @@
 # Robot Path Planning with Potential Fields
 
-Ce projet implémente un algorithme de planification de trajectoire pour robot utilisant la méthode des champs de potentiel. Cette approche permet à un robot de naviguer de manière autonome vers un objectif tout en évitant les obstacles.
+Ce projet montre qu'il est possible de ré arranger une scene de maniere à ce que deux point données soit reliable par un chemin "correct" en résolvant un problème d'optimisation. Ce principe peut etre ajouté à des logiciels du type layout vlm pour prendre en compte des contraintes sémantiques du type "il faut que cette chaise et cette lampe soit joignable" (ce qui peut ne pas être évidant si la scène est chargée).
 
-## 🚀 Fonctionnalités
+Le processus d'optimisation utilise JAX pour minimiser une fonction de perte qui prend en compte qui tente de lié facilement les 2 points. Il faut pour cela que le chemin entre les 2 points soit une fonction différentiables des positions et orientations des objets de la scène ce qui empêche d'utiliser des algos classiques comme a* pour trouver ce chemin. On utilise donc une modélisation par champ de vecteur vitesse, les obstacles repoussant et l'objectif attirant les particules.
 
-- Navigation autonome vers un objectif
-- Évitement d'obstacles dynamique
-- Visualisation des champs de force
-- Optimisation de trajectoire
-- Gestion des collisions entre obstacles
+## Structure du code
 
-## � Évolution de l'optimisation
+- `get_forces()` : Calcule les forces répulsives et attractives
+- `loss()` : Fonction de perte pour l'optimisation de la trajectoire
+- `affichage()` : Visualisation de la trajectoire et des champs de force
 
-Le processus d'optimisation utilise JAX pour minimiser une fonction de perte qui prend en compte :
-- La distance à la ligne droite idéale
-- Les collisions potentielles entre obstacles
-- La distance à l'objectif
+## Visualisation
+
+Le projet inclut des fonctionnalités de visualisation permettant d'afficher tout au long de la résolution du problème d'optimisation:
+- La trajectoire calculée
+- Les champs de force vectoriels
+- La position des obstacles
+- Le point de départ et d'arrivée
 
 Voici l'évolution de l'optimisation à travers différentes étapes :
 
 ### Étape 1 : Configuration initiale
-![Étape 1](step1.png)
+![Étape 1](Figure_1.png)
 *Configuration initiale avec les obstacles placés aléatoirement*
 
 ### Étape 2 : Premières itérations
@@ -34,54 +35,3 @@ Voici l'évolution de l'optimisation à travers différentes étapes :
 ### Étape 4 : Configuration finale
 ![Étape 4](step4.png)
 *Configuration optimale obtenue après convergence*
-
-## �🛠️ Technologies utilisées
-
-- Python 3.x
-- JAX (pour l'accélération des calculs et l'optimisation)
-- NumPy (pour les calculs numériques)
-- Matplotlib (pour la visualisation)
-
-## 📋 Prérequis
-
-```bash
-pip install jax jaxlib numpy matplotlib
-```
-
-## 💡 Principe de fonctionnement
-
-Le système utilise deux types de forces :
-1. **Forces répulsives** : générées par les obstacles pour les éviter
-2. **Forces attractives** : générées par l'objectif pour guider le robot
-
-L'algorithme calcule en continu :
-- La trajectoire optimale
-- Les forces d'interaction entre les obstacles
-- Le champ de potentiel global
-
-## 🔧 Structure du code
-
-- `get_forces()` : Calcule les forces répulsives et attractives
-- `loss()` : Fonction de perte pour l'optimisation de la trajectoire
-- `affichage()` : Visualisation de la trajectoire et des champs de force
-
-## 📊 Visualisation
-
-Le projet inclut des fonctionnalités de visualisation permettant d'afficher :
-- La trajectoire calculée
-- Les champs de force vectoriels
-- La position des obstacles
-- Le point de départ et d'arrivée
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! N'hésitez pas à :
-1. Fork le projet
-2. Créer une branche pour votre fonctionnalité
-3. Committer vos changements
-4. Pousser vers la branche
-5. Ouvrir une Pull Request
-
-## 📝 License
-
-Ce projet est sous licence MIT.
