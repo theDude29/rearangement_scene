@@ -1,4 +1,4 @@
-# Robot Path Planning with Potential Fields
+# Optimisation de la position des objets dans la scène afin de faciliter le passage entre deux objets donnés
 
 Ce projet montre qu'il est possible de ré arranger une scene de maniere à ce que deux point données soit reliable par un chemin "correct" en résolvant un problème d'optimisation. Ce principe peut etre ajouté à des logiciels du type layout vlm pour prendre en compte des contraintes sémantiques du type "il faut que cette chaise et cette lampe soit joignable" (ce qui peut ne pas être évidant si la scène est chargée).
 
@@ -34,4 +34,4 @@ Voici l'évolution de l'optimisation à travers différentes étapes :
 
 ### Étape 4 : Configuration finale
 ![Étape 4](Figure_4.png)
-*Configuration optimale obtenue après convergence*
+*Configuration optimale*
