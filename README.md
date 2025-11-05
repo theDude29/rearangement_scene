@@ -22,16 +22,16 @@ Voici l'évolution de l'optimisation à travers différentes étapes :
 
 ### Étape 1 : Configuration initiale
 ![Étape 1](Figure_1.png)
-*Configuration initiale avec les obstacles placés aléatoirement*
+*Config initiale*
 
 ### Étape 2 : Premières itérations
-![Étape 2](step2.png)
+![Étape 2](Figure_2.png)
 *Les obstacles commencent à se déplacer pour optimiser la trajectoire*
 
 ### Étape 3 : Optimisation avancée
-![Étape 3](step3.png)
+![Étape 3](Figure_3.png)
 *Les obstacles s'organisent pour créer un passage plus fluide*
 
 ### Étape 4 : Configuration finale
-![Étape 4](step4.png)
+![Étape 4](Figure_4.png)
 *Configuration optimale obtenue après convergence*
