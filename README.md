@@ -2,7 +2,7 @@
 
 Ce projet montre qu'il est possible de ré arranger une scene de maniere à ce que deux point données soit reliable par un chemin "correct" en résolvant un problème d'optimisation. Ce principe peut etre ajouté à des logiciels du type layout vlm pour prendre en compte des contraintes sémantiques du type "il faut que cette chaise et cette lampe soit joignable" (ce qui peut ne pas être évidant si la scène est chargée).
 
-Le processus d'optimisation utilise JAX pour minimiser une fonction de perte qui prend en compte qui tente de lié facilement les 2 points. Il faut pour cela que le chemin entre les 2 points soit une fonction différentiables des positions et orientations des objets de la scène ce qui empêche d'utiliser des algos classiques comme a* pour trouver ce chemin. On utilise donc une modélisation par champ de vecteur vitesse, les obstacles repoussant et l'objectif attirant les particules.
+Le processus d'optimisation utilise JAX pour minimiser une fonction de perte qui mesure la "facilité" de joindre deux points. Il faut pour cela que le chemin entre les 2 points soit une fonction différentiables des positions et orientations des objets de la scène ce qui empêche d'utiliser des algos classiques comme a* pour trouver ce chemin. On utilise donc une modélisation par champ de vecteur vitesse, les obstacles repoussant et l'objectif attirant les particules.
 
 ## Structure du code
 
